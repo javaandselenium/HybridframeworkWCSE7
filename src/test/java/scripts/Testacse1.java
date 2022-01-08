@@ -1,5 +1,8 @@
 package scripts;
 
+import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import genericLib.BaseClass;
@@ -9,7 +12,7 @@ import pomPages.SkillraryLoginPage;
 
 public class Testacse1 extends BaseClass {
 	@Test
-	public void tc1() {
+	public void tc1() throws IOException {
 		SkillraryLoginPage s=new SkillraryLoginPage(driver);
 		s.gerasButton();
 		s.skillraryDemoapp();
@@ -23,7 +26,7 @@ public class Testacse1 extends BaseClass {
 		utilies.doubleClick(driver,ad.getPlusbtn());
 		ad.addtocart();
 		utilies.alertPopup(driver);
-		
+		Assert.assertEquals(driver.getTitle(),pdata.getdata("title"));
 		
 		
 	}
